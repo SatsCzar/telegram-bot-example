@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "npx eslint \"**/*.{js,jsx}\" --fix"
   },
   "keywords": [
     "telegram-bot",
@@ -15,7 +16,12 @@
   "license": "Unlicense",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "prettier": "^3.0.0",
     "telegraf": "^4.12.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0"
   }
 }
