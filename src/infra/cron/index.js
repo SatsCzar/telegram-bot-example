@@ -18,15 +18,14 @@ const cronJobs = (bot) => {
 
   if (!isCronScheduleValid) throw new Error(`Expressão ${cronSchedule} inválida`)
 
-  new CronJob(
-    cronSchedule,
-    async () => {
+  new CronJob({
+    cronTime: cronSchedule,
+    onTick: async () => {
       await bot.telegram.sendMessage(config.ownerChatId, "RODOU !!!")
     },
-    null,
-    null,
-    "America/Sao_Paulo",
-  )
+    startNow: true,
+    timeZone: "America/Sao_Paulo",
+  })
 
   const cronPortuguese = cronsTrue.toString(cronSchedule, { locale: "pt_BR" })
 
